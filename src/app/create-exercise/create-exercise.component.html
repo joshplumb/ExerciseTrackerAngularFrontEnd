@@ -1,0 +1,32 @@
+<p>create-exercise works!</p>
+<button><a routerLink="/">Back</a></button>
+
+<form [formGroup]="reactiveCreateForm" (submit)="submitApplication()">
+    <p>
+        <label for="exerciseName">Exercise Name</label>
+        <input type="text" id="exerciseName" name="exerciseName">
+    </p>
+    <p>
+        <label for="weight">Weight</label>
+        <input type="text" id="weight" name="weight">
+    </p>
+    <p>
+        <label for="intensity">Intensity</label>
+        <input type="text" id="intensity" name="intensity">
+    </p>
+     <p>
+        <label for="repetitions">Repetitions</label>
+        <input type="text" id="repetitions" name="repetitions">
+     </p>   
+     <p>
+        <label for="notes">Notes</label>
+        <input type="text" id="notes" name="notes">
+     </p>
+     <p>
+        <label for="date">Date</label>
+        <input type="text" id="date" name="date">
+     </p>
+     <p>
+        <button type="submit">Submit</button>
+     </p>
+</form>

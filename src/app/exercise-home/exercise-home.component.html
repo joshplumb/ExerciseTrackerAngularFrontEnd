@@ -1,0 +1,15 @@
+<h3 class="p-3 text-center">Exercises</h3>
+
+<a routerLink="/create-exercise" class="button fancy-button">Create a new entry</a>
+                <ul>
+                        @for(exercise of exercises; track exercise.exerciseId)
+                        {
+                                <li>
+                                        <app-exercise-component [exercise]="exercise"></app-exercise-component>
+                                        <button class="btn btn-delete" (click)="deleteExercise(exercise.exerciseId)" class="primary" id="delete">Delete</button>
+                                        <button><a routerLink="/edit-exercise">Edit</a></button> 
+                                </li>
+                        }
+                </ul>
+
+<button class="primary">Search</button>
