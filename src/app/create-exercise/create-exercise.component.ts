@@ -1,6 +1,7 @@
 import { Component, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Exercise } from '../exercise-model';
+import { ExerciseService } from '../exercise.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -11,17 +12,23 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './create-exercise.component.css'
 })
 export class CreateExerciseComponent {
-  @Input() exercise: Exercise = {
-    exerciseId:0, 
-    exerciseName:"", 
-    weight:0, 
-    intensity: 0,
-    repetitions: 0,
-    notes: "",
-    date: new Date()
-  };
+
+  constructor(private exercisService: ExerciseService){
+    this.exercise = {
+      exerciseId: 0, 
+      exerciseName:"", 
+      weight:0, 
+      intensity: 0,
+      repetitions: 0,
+      notes: "",
+      date: new Date()
+    };
+  }
+
+  @Input() exercise: Exercise;
 
   reactiveCreateForm = new FormGroup ({
+    exerciseId: new FormControl(),
     exerciseName: new FormControl(),
     weight: new FormControl(),
     intensity: new FormControl(),
@@ -31,10 +38,17 @@ export class CreateExerciseComponent {
   })
 
 
-@Output() exerciseCreated = new EventEmitter<Exercise>();
-
-submitApplication() {
-  this.exercise = this.reactiveCreateForm.value;
-  this.exerciseCreated.emit(this.exercise);
-}
+  submitApplication() {
+    const formData = this.reactiveCreateForm.value;
+    const newExercise: Exercise = {
+      exerciseId: formData.exerciseId,
+      exerciseName: formData.exerciseName,
+      weight: formData.weight,
+      intensity: formData.intensity,
+      repetitions: formData.repetitions,
+      notes: formData.notes,
+      date: formData.date
+    }
+    this.exercisService.createExercise(newExercise);
+  }
 }

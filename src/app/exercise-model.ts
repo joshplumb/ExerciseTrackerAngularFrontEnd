@@ -1,5 +1,5 @@
 export interface Exercise {
-    exerciseId: number
+    exerciseId?: number
     exerciseName: string
     weight: number
     intensity: number
