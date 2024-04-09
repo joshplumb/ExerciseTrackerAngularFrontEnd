@@ -5,12 +5,11 @@ import { Exercise } from '../exercise-model';
 import { OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ExerciseListComponent } from '../exercise-list/exercise-list.component';
 
 @Component({
   selector: 'app-exercise-home',
   standalone: true,
-  imports: [ RouterModule, ExerciseComponent, CommonModule, ExerciseListComponent],
+  imports: [ RouterModule, ExerciseComponent, CommonModule],
   templateUrl: './exercise-home.component.html',
   styleUrl: './exercise-home.component.css'
 })
@@ -48,8 +47,8 @@ getExerciseById(id: number){
 }
 createExercise(exercise: Exercise){
   this.exerciseService.createExercise(exercise).subscribe({
-    next: (res) => {
-      this.exercises = res;
+    next: (res: any) => {
+      this.exercises = res.data.exercises;
       this.isProgress = false;
     },
     error: (res) => {
@@ -82,11 +81,8 @@ deleteExercise(id: number){
     }
   })
 }
-ngOnInit(){
+ngOnInit() {
   this.getExercises();
-  //this.getExerciseById();
-  //this.deleteExercise();
-  //this.createExercise();
-  //this.updateExercise();
 }
+
 }
