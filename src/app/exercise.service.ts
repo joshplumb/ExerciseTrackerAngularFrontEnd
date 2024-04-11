@@ -1,8 +1,7 @@
-import { Inject, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Exercise } from "./exercise-model";
 import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
-import { observableToBeFn } from "rxjs/internal/testing/TestScheduler";
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +12,6 @@ export class ExerciseService {
 
     constructor(private _http: HttpClient) {}
     
-    // all collapsed methods have the same inner logic as getAllExercises()
     getAllExercises(): Observable<any>{
         return this._http.get(this.apiUrl)
         .pipe(

@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Exercise } from '../exercise-model';
 import { ExerciseService } from '../exercise.service';
@@ -36,7 +36,6 @@ export class CreateExerciseComponent {
     notes: new FormControl(),
     date: new FormControl()
   })
-
 
   submitApplication() {
     const formData = this.reactiveCreateForm.value;
