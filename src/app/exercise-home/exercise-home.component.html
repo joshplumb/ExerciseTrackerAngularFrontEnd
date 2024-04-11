@@ -1,12 +1,12 @@
-<h3 class="p-3 text-center">Exercises</h3>
+<h3>Exercises</h3>
 
-<a routerLink="/create-exercise" class="button fancy-button">Create a new entry</a>
+<a routerLink="/create-exercise" class="create-button">Create a new entry</a>
                 <ul>
                         @for(exercise of exercises; track exercise.exerciseId)
                         {
                                 <li>
                                         <app-exercise-component [exercise]="exercise"></app-exercise-component>
-                                        <button><a routerLink="/edit-exercise">Edit</a></button> 
+                                        <button class="edit-button"><a routerLink="/edit-exercise">Edit</a></button> 
                                 </li>
                         }
                 </ul>

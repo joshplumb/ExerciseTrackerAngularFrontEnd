@@ -33,9 +33,7 @@
     transition: background-color 0.3s ease;
   }
   
-  .delete-button:hover {
-    background-color: #e00000;
-  }
+  
   
   /* Add subtle box shadow on hover */
   .exercise-details-container:hover {
