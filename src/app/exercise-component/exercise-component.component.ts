@@ -14,8 +14,6 @@ import { GetPutPostDeleteService } from '../get-put-post-delete.service';
 export class ExerciseComponent {
   @Input() exercise!: Exercise;
   // @Input() exercise: Exercise = {
-
-
   //   exerciseId:0, 
   //   exerciseName:"", 
   //   weight:0, 

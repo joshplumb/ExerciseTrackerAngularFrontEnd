@@ -1,28 +1,28 @@
 <p>Create a new exercise here</p>
 <button><a routerLink="/">Back</a></button>
 
-<form [formGroup]="reactiveCreateForm" (submit)="submitApplication()">
+<div>
     <p>
         <label for="exerciseName">Exercise Name</label>
-        <input type="text" id="exerciseName" name="exerciseName">
+        <input type="text" id="exerciseName" name="exerciseName" [(ngModel)]="exercise.exerciseName">
     </p>
     <p>
         <label for="weight">Weight</label>
-        <input type="text" id="weight" name="weight">
+        <input type="number" id="weight" name="weight" [(ngModel)]="exercise.weight">
     </p>
     <p>
         <label for="intensity">Intensity</label>
-        <input type="text" id="intensity" name="intensity">
+        <input type="number" id="intensity" name="intensity" [(ngModel)]="exercise.intensity">
     </p>
-     <p>
+    <p>
         <label for="repetitions">Repetitions</label>
-        <input type="text" id="repetitions" name="repetitions">
-     </p>   
-     <p>
+        <input type="number" id="repetitions" name="repetitions" [(ngModel)]="exercise.repetitions">
+    </p>   
+    <p>
         <label for="notes">Notes</label>
-        <input type="text" id="notes" name="notes">
-     </p>
-     <p>
-        <button type="submit">Submit</button>
-     </p>
-</form>
+        <input type="text" id="notes" name="notes" [(ngModel)]="exercise.notes">
+    </p>
+    <p>
+        <button (click)="submitNewExercise()">Submit</button>
+    </p>
+</div>
