@@ -34,3 +34,58 @@ a {
     text-decoration: none; 
     color: white;
   }
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .epic-input {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #333;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    flex-basis: calc(50% - 12px);
+    margin-bottom: 24px;
+    width: 300px;
+  }
+  
+  .epic-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .epic-input::placeholder {
+    color: #aaa;
+    font-weight: 400;
+  }
+  
+  .epic-input::-webkit-input-placeholder {
+    color: #aaa;
+    font-weight: 400;
+  }
+  
+  .epic-input::-moz-placeholder {
+    color: #aaa;
+    font-weight: 400;
+  }
+  
+  .epic-input:-ms-input-placeholder {
+    color: #aaa;
+    font-weight: 400;
+  }
+  
+  .epic-input::-ms-input-placeholder {
+    color: #aaa;
+    font-weight: 400;
+  }
+
+  

@@ -1,25 +1,25 @@
 <button class="red-button"><a routerLink="/">Back</a></button>
 
-<div>
+<div class="input-wrapper">
     <p>
-        <label for="exerciseName">Exercise Name</label>
-        <input type="text" id="exerciseName" name="exerciseName" [(ngModel)]="exercise.exerciseName">
+        <label class="epic-input" for="exerciseName">Exercise Name</label>
+        <input class="epic-input" type="text" id="exerciseName" name="exerciseName" [(ngModel)]="exercise.exerciseName">
     </p>
     <p>
-        <label for="weight">Weight</label>
-        <input type="number" id="weight" name="weight" [(ngModel)]="exercise.weight">
+        <label class="epic-input" for="weight">Weight</label>
+        <input class="epic-input" type="number" id="weight" name="weight" [(ngModel)]="exercise.weight">
     </p>
     <p>
-        <label for="intensity">Intensity</label>
-        <input type="number" id="intensity" name="intensity" [(ngModel)]="exercise.intensity">
+        <label class="epic-input" for="intensity">Intensity</label>
+        <input class="epic-input" type="number" id="intensity" name="intensity" [(ngModel)]="exercise.intensity">
     </p>
     <p>
-        <label for="repetitions">Repetitions</label>
-        <input type="number" id="repetitions" name="repetitions" [(ngModel)]="exercise.repetitions">
+        <label class="epic-input" for="repetitions">Repetitions</label>
+        <input class="epic-input" type="number" id="repetitions" name="repetitions" [(ngModel)]="exercise.repetitions">
     </p>   
     <p>
-        <label for="notes">Notes</label>
-        <input type="text" id="notes" name="notes" [(ngModel)]="exercise.notes">
+        <label class="epic-input" for="notes">Notes</label>
+        <input class="epic-input" type="text" id="notes" name="notes" [(ngModel)]="exercise.notes">
     </p>
     <p>
         <button class="green-button" (click)="editExercise()">Submit</button>
