@@ -1,7 +1,22 @@
-    <h1 >Name {{ exercise.exerciseName }}</h1>
+    <!-- <h1 >Name {{ exercise.exerciseName }}</h1>
     <h2 >Weight {{ exercise.weight }}</h2>
     <h2 >Repetitions {{ exercise.repetitions }}</h2>
     <h3 >Rating of Perceived Exertion {{ exercise.intensity }}</h3>
     <h3 >Notes {{ exercise.notes }}</h3>
     <h3 >Date Completed {{ exercise.date | date: 'M/d/yy' }}</h3>
-    <button class="delete-button" (click)="getPutPostDeleteInstance.deleteExercise(exercise.exerciseId)">Delete</button>
+    <button class="delete-button" (click)="getPutPostDeleteInstance.deleteExercise(exercise.exerciseId)">Delete</button> -->
+
+    <div class="exercise-details">
+        <h1>Name: {{ exercise.exerciseName }}</h1>
+        <div class="details">
+            <p><strong>Weight:</strong> {{ exercise.weight }}</p>
+            <p><strong>Repetitions:</strong> {{ exercise.repetitions }}</p>
+            <p><strong>Intensity:</strong> {{ exercise.intensity }}</p>
+            <p><strong>Notes:</strong> {{ exercise.notes }}</p>
+            <p><strong>Date Completed:</strong> {{ exercise.date | date: 'M/d/yy' }}</p>
+        </div>
+        <button class="red-button" (click)="getPutPostDeleteInstance.deleteExercise(exercise.exerciseId)">Delete</button>
+        <button class="green-button"><a routerLink='/edit-exercise/{{exercise.exerciseId}}'>Edit</a></button>
+        <!-- <button class="edit-button"><a routerLink='/edit-exercise/{{exercise.exerciseId}}'>Edit</a></button> -->
+    </div>
+    

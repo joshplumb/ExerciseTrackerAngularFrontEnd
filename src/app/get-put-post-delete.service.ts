@@ -13,11 +13,13 @@ export class GetPutPostDeleteService {
 
   constructor(private exerciseService: ExerciseService) { }
 
-  getExercises(){
+  async getExercises(): Promise<void>{
     this.isProgress = true;
     this.exerciseService.getAllExercises().subscribe({
       next: (res) => {
         this.exercises = res;
+        console.log('From service:')
+        console.log(this.exercises);
         this.isProgress = false;
       },
       error: (res) => {

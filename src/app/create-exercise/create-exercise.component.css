@@ -1,42 +1,36 @@
-/* Exercise details container */
-.exercise-details-container {
-    font-family: 'Arial', sans-serif; /* Example font-family */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  /* Exercise name */
-  .exercise-name {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Exercise properties */
-  .exercise-property {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-  
-  /* Exercise delete button */
-  .delete-button {
-    font-family: 'Arial', sans-serif; /* Example font-family */
-    background-color: #ff5252;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  
-  
-  /* Add subtle box shadow on hover */
-  .exercise-details-container:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
+.green-button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  background-color: #02b629;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.green-button:hover {
+background-color: #009879;
+}
+
+.red-button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.red-button:hover {
+  background-color: #c82333;
+}
+
+a { 
+  text-decoration: none; 
+  color: white;
+}

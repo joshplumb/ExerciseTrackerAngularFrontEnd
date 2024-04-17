@@ -1,5 +1,5 @@
 <p>Create a new exercise here</p>
-<button><a routerLink="/">Back</a></button>
+<button class="red-button"><a routerLink="/">Back</a></button>
 
 <div>
     <p>
@@ -23,6 +23,6 @@
         <input type="text" id="notes" name="notes" [(ngModel)]="exercise.notes">
     </p>
     <p>
-        <button (click)="submitNewExercise()">Submit</button>
+        <button class="green-button" (click)="submitNewExercise()">Submit</button>
     </p>
 </div>

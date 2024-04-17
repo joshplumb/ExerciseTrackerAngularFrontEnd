@@ -14,7 +14,7 @@ export const routes: Routes = [
         component: CreateExerciseComponent,
     },
     {
-        path: 'edit-exercise', 
+        path: 'edit-exercise/:id', 
         component: EditExerciseComponent,
     }
 ];

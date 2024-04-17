@@ -3,16 +3,18 @@ import { Exercise } from '../exercise-model';
 import { ExerciseService } from '../exercise.service';
 import { CommonModule } from '@angular/common';
 import { GetPutPostDeleteService } from '../get-put-post-delete.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-exercise-component',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './exercise-component.component.html',
   styleUrl: './exercise-component.component.css'
 })
 export class ExerciseComponent {
   @Input() exercise!: Exercise;
+
   // @Input() exercise: Exercise = {
   //   exerciseId:0, 
   //   exerciseName:"", 
@@ -22,6 +24,7 @@ export class ExerciseComponent {
   //   notes: "",
   //   date: new Date()
   // };
+  
   public isProgress: boolean = false;
   public exercises: Exercise [] = []
 
