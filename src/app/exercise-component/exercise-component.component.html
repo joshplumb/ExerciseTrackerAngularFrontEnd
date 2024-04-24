@@ -1,11 +1,3 @@
-    <!-- <h1 >Name {{ exercise.exerciseName }}</h1>
-    <h2 >Weight {{ exercise.weight }}</h2>
-    <h2 >Repetitions {{ exercise.repetitions }}</h2>
-    <h3 >Rating of Perceived Exertion {{ exercise.intensity }}</h3>
-    <h3 >Notes {{ exercise.notes }}</h3>
-    <h3 >Date Completed {{ exercise.date | date: 'M/d/yy' }}</h3>
-    <button class="delete-button" (click)="getPutPostDeleteInstance.deleteExercise(exercise.exerciseId)">Delete</button> -->
-
     <div class="exercise-details">
         <h1>Name: {{ exercise.exerciseName }}</h1>
         <div class="details">
@@ -17,6 +9,5 @@
         </div>
         <button class="red-button" (click)="deleteAndReload(exercise.exerciseId)">Delete</button>
         <button class="green-button"><a routerLink='/edit-exercise/{{exercise.exerciseId}}'>Edit</a></button>
-        <!-- <button class="edit-button"><a routerLink='/edit-exercise/{{exercise.exerciseId}}'>Edit</a></button> -->
     </div>
     
