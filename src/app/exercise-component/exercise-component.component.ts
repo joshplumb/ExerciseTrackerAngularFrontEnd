@@ -31,5 +31,10 @@ export class ExerciseComponent {
   constructor(private exerciseService: ExerciseService, public getPutPostDeleteInstance: GetPutPostDeleteService) {
   }
 
+  deleteAndReload(exerciseId: number)
+  {
+    this.getPutPostDeleteInstance.deleteExercise(exerciseId);
+    window.location.reload();
+  }
  
 }

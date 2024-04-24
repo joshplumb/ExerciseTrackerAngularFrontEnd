@@ -15,7 +15,7 @@
             <p><strong>Notes:</strong> {{ exercise.notes }}</p>
             <p><strong>Date Completed:</strong> {{ exercise.date | date: 'M/d/yy' }}</p>
         </div>
-        <button class="red-button" (click)="getPutPostDeleteInstance.deleteExercise(exercise.exerciseId)">Delete</button>
+        <button class="red-button" (click)="deleteAndReload(exercise.exerciseId)">Delete</button>
         <button class="green-button"><a routerLink='/edit-exercise/{{exercise.exerciseId}}'>Edit</a></button>
         <!-- <button class="edit-button"><a routerLink='/edit-exercise/{{exercise.exerciseId}}'>Edit</a></button> -->
     </div>
