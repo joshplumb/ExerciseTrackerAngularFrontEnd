@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Exercise } from '../exercise-model';
 import { ExerciseService } from '../exercise.service';
@@ -17,24 +15,34 @@ import { GetPutPostDeleteService } from '../get-put-post-delete.service';
 export class EditExerciseComponent {
 
   exercise!: Exercise;
-  route: ActivatedRoute = inject(ActivatedRoute);
   exerciseId = 0;
   
-  constructor(private exerciseService: ExerciseService, private getPutPostDeleteInstance: GetPutPostDeleteService){
-    
+  constructor(private exerciseService: ExerciseService, private getPutPostDeleteInstance: GetPutPostDeleteService, private route: ActivatedRoute, private router: Router){
   }
-
-  // const exerciseId = parseInt(this.route.snapshot.params['id'], 10);
-  //   this.housingService.getHousingLocationById(housingLocationId).then(housingLocation => {
-  //     this.housingLocation = housingLocation;
-  //   });
 
   editExercise(){
-  this.getPutPostDeleteInstance.updateExercise(this.exercise);
-
+    this.getPutPostDeleteInstance.updateExercise(this.exercise);
+    this.reloadCurrentRoute();
+  }
+  
+  populateInputFields(id: number){
+    this.exerciseService.getExerciseByID(id).subscribe(formData => {
+      this.exercise = formData;
+    })
   }
 
-  
-  populateInputFields(){
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
+}
+
+  ngOnInit()
+  {
+    this.route.params.subscribe(params => {
+      const id = +params['id'];
+      this.populateInputFields(id);
+    })
   }
 }

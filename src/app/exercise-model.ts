@@ -4,6 +4,6 @@ export interface Exercise {
     weight: number
     intensity: number
     repetitions: number
-    notes: string
+    notes?: string
     date: Date
 }
