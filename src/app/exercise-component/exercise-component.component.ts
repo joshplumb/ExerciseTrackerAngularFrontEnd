@@ -28,12 +28,14 @@ export class ExerciseComponent {
   public isProgress: boolean = false;
   public exercises: Exercise [] = []
 
-  constructor(private exerciseService: ExerciseService, public getPutPostDeleteInstance: GetPutPostDeleteService) {
+  constructor(public getPutPostDeleteInstance: GetPutPostDeleteService) {
   }
 
-  deleteAndReload(exerciseId: number)
+  async deleteAndReload(exerciseId: number)
   {
-    this.getPutPostDeleteInstance.deleteExercise(exerciseId);
+    this.isProgress = true;
+    await this.getPutPostDeleteInstance.deleteExercise(exerciseId);
+    this.isProgress = false;
     window.location.reload();
   }
  

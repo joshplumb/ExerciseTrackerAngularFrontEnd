@@ -20,11 +20,13 @@ export class EditExerciseComponent {
   constructor(private exerciseService: ExerciseService, private getPutPostDeleteInstance: GetPutPostDeleteService, private route: ActivatedRoute, private router: Router){
   }
 
+  // the reloadCurrentRoute function would do well to be made into an async operation so that it can await the service call
   editExercise(){
     this.getPutPostDeleteInstance.updateExercise(this.exercise);
     this.reloadCurrentRoute();
   }
   
+  // possible memory leak here because i never unsubscribe from the observable
   populateInputFields(id: number){
     this.exerciseService.getExerciseByID(id).subscribe(formData => {
       this.exercise = formData;
@@ -36,7 +38,7 @@ export class EditExerciseComponent {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currentUrl]);
     });
-}
+  }
 
   ngOnInit()
   {
@@ -44,5 +46,10 @@ export class EditExerciseComponent {
       const id = +params['id'];
       this.populateInputFields(id);
     })
+  }
+  ngOnDestroy()
+  {
+    // Im not sure that in this version of angular that I need to actually manually unsubscribe upon destroy/garbage collection
+    // this.route.params.unsubscribe();
   }
 }

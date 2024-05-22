@@ -37,7 +37,5 @@ export class ExerciseHomeComponent {
       
       ngOnInit() {
         this.getExercises();
-        
       }
-  
 }

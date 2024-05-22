@@ -9,7 +9,7 @@ export class GetPutPostDeleteService {
 
   public exercises: Exercise [] = []
 
-  public isProgress: boolean = false;
+  public isProgress: boolean = true;
 
   constructor(private exerciseService: ExerciseService) { }
 
