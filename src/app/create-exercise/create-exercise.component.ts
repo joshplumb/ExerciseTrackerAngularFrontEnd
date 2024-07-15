@@ -38,6 +38,7 @@ export class CreateExerciseComponent {
   submitNewExercise() {
     this.getPutPostDeleteService.createExercise(this.exercise);
     window.location.reload();
-
   }
+
+  
 }

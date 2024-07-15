@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Exercise } from '../exercise-model';
 import { ExerciseService } from '../exercise.service';
 import { CommonModule } from '@angular/common';
-import { GetPutPostDeleteService } from '../get-put-post-delete.service';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-exercise-component',
@@ -28,15 +27,28 @@ export class ExerciseComponent {
   public isProgress: boolean = false;
   public exercises: Exercise [] = []
 
-  constructor(public getPutPostDeleteInstance: GetPutPostDeleteService) {
+  currentRouter = this.router.url;
+
+  constructor(private exerciseService: ExerciseService, public router: Router, public route: ActivatedRoute) {
   }
 
-  async deleteAndReload(exerciseId: number)
+  deleteExerciseInComponent(exerciseId: number)
   {
     this.isProgress = true;
-    await this.getPutPostDeleteInstance.deleteExercise(exerciseId);
+    this.deleteExercise(exerciseId);
     this.isProgress = false;
     window.location.reload();
   }
- 
+  deleteExercise(id: number){
+    this.exerciseService.deleteExercise(id).subscribe({
+      next: (res) => {
+        this.exercises = res;
+        this.isProgress = false;
+      },
+      error: (res) => {
+        console.log(res);
+        this.isProgress = false;
+      }
+    })
+  }
 }

@@ -2,10 +2,8 @@ import { Component, Input } from '@angular/core';
 import { ExerciseService } from '../exercise.service';
 import { ExerciseComponent } from '../exercise-component/exercise-component.component';
 import { Exercise } from '../exercise-model';
-import { OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { GetPutPostDeleteService } from '../get-put-post-delete.service';
 
 @Component({
   selector: 'app-exercise-home',
@@ -19,7 +17,7 @@ export class ExerciseHomeComponent {
       public exercises: Exercise [] = []
       public isProgress: boolean = false;
 
-      constructor(private exerciseService: ExerciseService, public getPutPostDeleteInstance: GetPutPostDeleteService) {}
+      constructor(private exerciseService: ExerciseService) {}
 
        getExercises(){
          this.isProgress = true;

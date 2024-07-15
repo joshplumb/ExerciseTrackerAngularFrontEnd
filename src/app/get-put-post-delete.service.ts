@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Exercise } from './exercise-model';
 import { ExerciseService } from './exercise.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
