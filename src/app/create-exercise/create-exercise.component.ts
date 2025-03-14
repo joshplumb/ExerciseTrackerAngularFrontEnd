@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Exercise } from '../exercise-model';
+import { ExerciseService } from '../exercise.service';
 import { FormsModule } from '@angular/forms';
 import { GetPutPostDeleteService } from '../get-put-post-delete.service';
 
@@ -13,22 +14,23 @@ import { GetPutPostDeleteService } from '../get-put-post-delete.service';
 })
 export class CreateExerciseComponent {
 
-  constructor(private getPutPostDeleteService: GetPutPostDeleteService){
+  constructor(private exerciseService: ExerciseService, private getPutPostDeleteService: GetPutPostDeleteService) {
     this.exercise = {
-      exerciseId: 0, 
-      exerciseName:"", 
-      weight:0, 
+      exerciseId: 0,
+      exerciseName: "",
+      weight: 0,
       intensity: 0,
       repetitions: 0,
       notes: "",
       date: new Date()
     };
   }
-
+  public exercises: Exercise[] = []
+  public isProgress: Boolean = false
   exercise: Exercise = {
-    exerciseId:0, 
-    exerciseName:"", 
-    weight:0, 
+    exerciseId: 0,
+    exerciseName: "",
+    weight: 0,
     intensity: 0,
     repetitions: 0,
     notes: "",
@@ -40,5 +42,16 @@ export class CreateExerciseComponent {
     window.location.reload();
   }
 
-  
+  createExercise(exercise: Exercise) {
+    this.exerciseService.createExercise(exercise).subscribe({
+      next: (res: any) => {
+        this.exercises = res.data.exercises;
+        this.isProgress = false;
+      },
+      error: (res) => {
+        console.log(res);
+        this.isProgress = false;
+      }
+    })
+  }
 }
