@@ -8,6 +8,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin: 10px 0;
 }
 
 .blue-button:hover {
@@ -21,5 +22,13 @@ h3 {
 
 a { 
   text-decoration: none; 
+  margin-right: 10px;
+  padding-right: 10px;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  padding: 20px;
+}

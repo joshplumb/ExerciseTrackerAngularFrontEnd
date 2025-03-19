@@ -1,13 +1,24 @@
-<h3>Exercises</h3>
+<div>
+        <h3>Exercises</h3>
+</div>
 
-<a routerLink="/create-exercise" class="blue-button">Create a new entry</a>
-                <ul>
-                        @for(exercise of exercises; track exercise.exerciseId)
-                        {
-                                <li>
-                                        <app-exercise-component [exercise]="exercise"></app-exercise-component>
-                                </li>
-                        }
-                </ul>
+<div>
+        <a routerLink="/create-exercise" class="blue-button">Create a new entry</a>
+</div>
 
-<button class="blue-button">Search</button>
+<div>
+        <button class="blue-button">Search</button>
+</div>
+
+<div>
+        <a routerLink="/edit-exercise" class="blue-button">Edit an Exercise</a>
+</div>
+
+<div class="grid-container">
+                @for(exercise of exercises; track exercise.exerciseId)
+                {
+                        <div>
+                                <app-exercise-component [exercise]="exercise"></app-exercise-component>
+                        </div>
+                }
+</div>

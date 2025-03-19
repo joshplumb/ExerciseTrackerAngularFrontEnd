@@ -1,22 +1,24 @@
 .exercise-details {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid #030303;
+    padding: 1%;
+    margin-bottom: 1%;
+    border-radius: 20px;
+    background-color: #c7c7c7;
+    width: 300px;
 }
 
 .exercise-details h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 8px;
 }
 
 .details {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .details p {
-    margin: 5px 0;
+    margin: 5px;
 }
 
 .red-button {
@@ -26,9 +28,11 @@
     color: #fff;
     border: none;
     padding: 8px 16px;
+    margin: 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    margin-right: 10px;
 }
 
 .red-button:hover {
