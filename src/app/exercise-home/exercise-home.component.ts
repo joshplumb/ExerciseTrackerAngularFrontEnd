@@ -14,16 +14,18 @@ import { CommonModule } from '@angular/common';
 })
 export class ExerciseHomeComponent {
 
-  public exercises: Exercise[] = []
+  public exerciseList: Exercise[] = []
+  public filteredExercises: Exercise[] = []
   public isProgress: boolean = false;
 
-  constructor(private exerciseService: ExerciseService) { }
+  constructor(private exerciseService: ExerciseService) {}
 
   getExercises() {
     this.isProgress = true;
     this.exerciseService.getAllExercises().subscribe({
       next: (res) => {
-        this.exercises = res;
+        this.exerciseList = res;
+        this.filteredExercises = res;
         this.isProgress = false;
       },
       error: (res) => {
@@ -31,6 +33,10 @@ export class ExerciseHomeComponent {
         this.isProgress = false;
       }
     });
+  }
+
+  filterResults(searchInput: string): void {
+    this.filteredExercises = this.exerciseList.filter(exercise => exercise.exerciseName.toLowerCase().includes(searchInput.toLowerCase()))
   }
 
   ngOnInit() {

@@ -7,7 +7,9 @@
 </div>
 
 <div>
-        <button class="blue-button">Search</button>
+        <input type="text" placeholder="Search by name" #input>
+        <button class="blue-button"
+        (click)="filterResults(input.value)">Search</button>
 </div>
 
 <div>
@@ -15,7 +17,7 @@
 </div>
 
 <div class="grid-container">
-                @for(exercise of exercises; track exercise.exerciseId)
+                @for(exercise of filteredExercises; track exercise.exerciseId)
                 {
                         <div>
                                 <app-exercise-component [exercise]="exercise"></app-exercise-component>

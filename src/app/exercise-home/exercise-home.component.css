@@ -29,6 +29,6 @@ a {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
+  gap: 10px;
   padding: 20px;
 }
